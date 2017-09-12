@@ -1,6 +1,6 @@
 # \<kwc-color-picker\>
 
-Later
+Tile based color picker with customizable palette
 
  - What is it called?
      - kwc-color-picker
