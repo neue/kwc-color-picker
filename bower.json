@@ -20,6 +20,7 @@
     "iron-icon": "^2.0.1",
     "iron-iconset-svg": "^2.1.0",
     "iron-doc-viewer": "^3.0.0",
-    "iron-location": "1 - 2"
+    "iron-location": "1 - 2",
+    "webcomponentsjs": "^0.7.24"
   }
 }
