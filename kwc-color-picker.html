@@ -195,7 +195,7 @@ Custom property | Description | Default
             }
             const colorSize = this.getComputedStyleValue('--kwc-color-picker-size') || '32px',
                   margin = this.getComputedStyleValue('--kwc-color-picker-margin') || '0.5px';
-            this.style.width = `${(parseFloat(colorSize, 10) + 2 *
+            this.$.colors.style.width = `${(parseFloat(colorSize, 10) + 2 *
                 parseFloat(margin, 10)) * this.rowSize}px`;
         },
         addColor(color) {
