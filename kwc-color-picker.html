@@ -4,7 +4,8 @@
 <link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
 <link rel="import" href="./kwc-color-picker-icons.html">
 <!--
-`kano-input-color` Display a color palette and allows selection by clicking on one of them
+`kano-input-color` Displays a color palette and allows one to be selected with a click
+
 Example:
 
     <kano-input-color value="{{value}}"></kano-input-color>
@@ -41,6 +42,7 @@ Custom property | Description | Default
                 @apply --layout-wrap;
                 position: relative;
                 cursor: pointer;
+                @apply --kwc-color-picker-field;
             }
 
             #select-frame {
@@ -48,8 +50,8 @@ Custom property | Description | Default
                 @apply --layout-center-justified;
                 @apply --layout-center;
                 position: absolute;
-                top: calc(var(--kwc-color-picker-margin, 0.5px) * -2);
-                left: calc(var(--kwc-color-picker-margin, 0.5px) * -2);
+                top: calc(var(--kwc-color-picker-margin, 0.5px) * -1);
+                left: calc(var(--kwc-color-picker-margin, 0.5px) * -1);
                 width: var(--kwc-color-picker-size, 32px);
                 height: var(--kwc-color-picker-size, 32px);
                 outline: 3px solid #aaa;
