@@ -14,6 +14,8 @@ Tile based color picker with customizable palette
  - What style variables are in use?
      - Colors: The list of colors available for selection
      - Outline: Can customize the style of the outline when over a light or dark color
+- Anything to keep in mind?
+     - If the display state of the element changes (i.e. it gets hidden/unhidden), you need to call notifyResize, otherwise the element will not properly render.
 
 ## Installation
 Clone this repository.
