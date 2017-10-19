@@ -246,19 +246,28 @@ Custom property | Description | Default
                 };
             this.toggleClass(brightness > 210 ? 'hover-dark' : 'hover-light', false, frame);
             this.toggleClass(brightness > 210 ? 'hover-light' : 'hover-dark', true, frame);
-            frame.animate({
-                transform: [
-                    `translate(${currentFrameOffset.left}px, ${currentFrameOffset.top}px)`,
-                    `translate(${target.offsetLeft}px, ${target.offsetTop}px)`
-                ]
-            }, {
-                    duration: (this.firstHighlight && !this.idle) ? 200 : 0,
+
+            // Animate if the frame is visible and animation is supported
+            if (this.firstHighlight && 'animate' in HTMLElement.prototype) {
+                frame.animate({
+                    transform: [
+                        `translate(${currentFrameOffset.left}px, ${currentFrameOffset.top}px)`,
+                        `translate(${target.offsetLeft}px, ${target.offsetTop}px)`
+                    ]
+                },{
+                    duration: 200,
                     easing: 'ease-out',
                     fill: 'forwards'
-                }).onfinish = () => {
+                });
+
+            // Otherwise use the new position immediately
+            } else {
+                frame.style.transform = `translate(${target.offsetLeft}px, ${target.offsetTop}px)`;
+                if (!this.firstHighlight) {
                     this.firstHighlight = true;
                     this.toggleClass('visible', true, this.$.tick);
-                };
+                }
+            }
         },
         _updateSelected() {
             if (this.isAttached) {
@@ -318,7 +327,6 @@ Custom property | Description | Default
         resize() {
             this.visible = this.getBoundingClientRect().width !== 0 &&
                 this.getBoundingClientRect().height !== 0;
-
             if (this.visible && !this.idle) {
                 this._highlightSelected();
             } else {
