@@ -248,7 +248,7 @@ Custom property | Description | Default
             this.toggleClass(brightness > 210 ? 'hover-light' : 'hover-dark', true, frame);
 
             // Animate if the frame is visible and animation is supported
-            if (this.firstHighlight && 'animate' in HTMLElement.prototype) {
+            if (!this.idle && this.firstHighlight && 'animate' in HTMLElement.prototype) {
                 frame.animate({
                     transform: [
                         `translate(${currentFrameOffset.left}px, ${currentFrameOffset.top}px)`,
@@ -263,10 +263,8 @@ Custom property | Description | Default
             // Otherwise use the new position immediately
             } else {
                 frame.style.transform = `translate(${target.offsetLeft}px, ${target.offsetTop}px)`;
-                if (!this.firstHighlight) {
-                    this.firstHighlight = true;
-                    this.toggleClass('visible', true, this.$.tick);
-                }
+                this.toggleClass('visible', true, this.$.tick);
+                this.firstHighlight = true;
             }
         },
         _updateSelected() {
