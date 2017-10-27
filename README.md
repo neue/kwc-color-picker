@@ -16,6 +16,7 @@ Tile based color picker with customizable palette
      - Outline: Can customize the style of the outline when over a light or dark color
 - Anything to keep in mind?
      - If the display state of the element changes (i.e. it gets hidden/unhidden), you need to call notifyResize, otherwise the element will not properly render.
+     - When the selected colour changes, the highlighting only animates if the Web Animations API is supported by the browser. To make the feature work in all browsers, use a [polyfill](https://github.com/web-animations/web-animations-js).
 
 ## Installation
 Clone this repository.
