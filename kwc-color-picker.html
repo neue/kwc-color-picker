@@ -192,6 +192,11 @@ Custom property | Description | Default
         listeners: {
             'iron-resize': '_onResize'
         },
+        // Forces the dom-repeat to stamp right now
+        // Useful if parent needs to compute size after connected
+        flush() {
+            Polymer.dom.flush();
+        },
         _setSize(rowSize, isAttached) {
             if (!isAttached) {
                 return;
